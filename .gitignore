@@ -1,0 +1,5 @@
+.env
+node_modules/
+
+# Local (not for git)
+js/app/*.local.js

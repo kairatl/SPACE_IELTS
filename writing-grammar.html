@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Grammar — SPACE IELTS</title>
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wa054xjbgs");
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="page-writing-grammar">
+    <script type="module">
+        import {
+            assertAuthenticatedOrRedirect,
+            watchAuthAndRedirectOnSignOut,
+        } from './js/app/auth.js';
+
+        await assertAuthenticatedOrRedirect();
+        watchAuthAndRedirectOnSignOut();
+    </script>
+    <div id="landing-page">
+        <header class="site-header" role="banner">
+            <nav class="site-nav" aria-label="Main">
+                <a href="index" class="site-logo">SPACE IELTS</a>
+                <div class="nav-auth">
+                    <a href="index" class="btn btn-ghost">Home</a>
+                    <a href="reading-dashboard" class="btn btn-ghost">Reading</a>
+                    <div class="nav-auth-user" data-auth-user>
+                        <a href="writing-grammar" class="btn btn-ghost">Lessons</a>
+                        <div class="nav-profile" data-nav-profile>
+                            <button
+                                type="button"
+                                class="nav-profile__trigger"
+                                data-profile-trigger
+                                id="nav-profile-trigger-wg"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-controls="nav-profile-menu-wg"
+                            >
+                                <span class="nav-profile__avatar" data-profile-avatar aria-hidden="true">?</span>
+                                <span class="nav-profile__name" data-profile-label>Account</span>
+                            </button>
+                            <div
+                                class="nav-profile__menu"
+                                id="nav-profile-menu-wg"
+                                data-profile-dropdown
+                                hidden
+                                role="menu"
+                                aria-labelledby="nav-profile-trigger-wg"
+                            >
+                                <a href="dashboard" class="nav-profile__item" role="menuitem">My Profile</a>
+                                <a href="dashboard#recent-tests" class="nav-profile__item" role="menuitem">Test History</a>
+                                <button type="button" class="nav-profile__item nav-profile__item--logout" data-logout role="menuitem">
+                                    Log out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep" aria-hidden="true">/</span>
+            <span class="breadcrumb-current">Writing Grammar</span>
+        </nav>
+
+        <section
+            class="page-intro wg-card wg-card--intro wg-ai-assistant"
+            aria-labelledby="ai-assistant-heading"
+        >
+            <h1 id="ai-assistant-heading" class="page-intro-title">AI Writing Assistant</h1>
+            <p class="page-intro-text wg-ai-assistant__lead">
+                Get instant Band 8.0+ feedback on your grammar and vocabulary.
+            </p>
+            <div class="wg-ai-assistant__zone">
+                <label class="wg-ai-assistant__label" for="ai-input">Your text</label>
+                <textarea
+                    id="ai-input"
+                    class="wg-ai-input"
+                    placeholder="Paste your text here for an instant check..."
+                    rows="10"
+                    spellcheck="true"
+                ></textarea>
+                <button type="button" id="ai-btn" class="wg-ai-btn">Check with AI</button>
+                <div
+                    id="ai-result"
+                    class="wg-ai-result"
+                    style="display: none"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+            </div>
+        </section>
+
+        <section class="lessons-section lessons-section--flush" aria-labelledby="lessons-heading">
+            <div class="wg-section-heading-wrap">
+                <h2 id="lessons-heading" class="lessons-section-title">Lessons</h2>
+                <p class="lessons-header-text">Grammar connects to all four papers: writing and speaking assess it directly; reading and listening rely on how you parse structure.</p>
+            </div>
+            
+            <div class="cards-container">
+                <div class="lesson-card" onclick="openLesson(1)">
+                    <span class="lesson-card__icon-wrap" aria-hidden="true">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1162/1162456.png" class="card-icon" alt="">
+                    </span>
+                    <h3>Lesson 1: Subject — Verb — Object</h3>
+                    <p>Understanding the core structure of English meaning and sentence building.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+                <div class="lesson-card" onclick="openLesson(2)">
+                    <span class="lesson-card__icon-wrap" aria-hidden="true">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3503/3503816.png" class="card-icon" alt="">
+                    </span>
+                    <h3>Lesson 2: Present &amp; Past Simple</h3>
+                    <p>The foundation of all IELTS tenses and how time context changes everything.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+                <div class="lesson-card" onclick="openLesson(3)">
+                    <span class="lesson-card__icon-wrap" aria-hidden="true">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3389/3389081.png" class="card-icon" alt="">
+                    </span>
+                    <h3>Lesson 3: Irregular Verbs</h3>
+                    <p>Mastering the patterns that don't follow the rules through repetition.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+                <div class="lesson-card" onclick="openLesson(4)">
+                    <span class="lesson-card__icon-wrap" aria-hidden="true">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3389/3389081.png" class="card-icon" alt="">
+                    </span>
+                    <h3>Lesson 4: Basic Prepositions</h3>
+                    <p>Mastering the "connectors" that define relationships of time, place, and logic.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+                <div class="lesson-card" onclick="openLesson(5)">
+                    <span class="lesson-card__icon-wrap" aria-hidden="true">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3389/3389081.png" class="card-icon" alt="">
+                    </span>
+                    <h3>Lesson 5: IELTS Writing task 1</h3>
+                    <p>Practising all we learnt through this platform course</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="lesson-page">
+        <div id="lesson-top-bar" class="wg-lesson-top-bar">
+            <button type="button" onclick="goBack()" class="btn btn-ghost wg-lesson-top-bar__back">
+                ← Back to Writing Grammar
+            </button>
+            <div class="wg-lesson-top-bar__title">Lesson <span id="current-lesson-num"></span></div>
+        </div>
+        <div class="lesson-container wg-lesson-container">
+            <button type="button" class="btn btn-ghost wg-back-inline" onclick="goBack()">← Back to Writing Grammar</button>
+
+            <article class="wg-card wg-card--lesson-body">
+                <div id="lesson-content-area" class="lesson-body"></div>
+            </article>
+
+            <button type="button" class="btn btn-signup wg-practice-cta" id="practice-btn" onclick="startPractice()">Start practice test</button>
+
+            <div id="test-area" class="test-area wg-card wg-card--practice"></div>
+        </div>
+    </div>
+
+    <script src="js/data/lessons.js"></script>
+    <script src="js/app/state.js"></script>
+    <script src="js/app/render-exercises.js"></script>
+    <script src="js/app/practice.js"></script>
+    <script src="js/app/security.js"></script>
+    <script src="js/app/ai-writing-assistant.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Practice Tests — SPACE IELTS</title>
+    <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wa054xjbgs");
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="landing-page">
+        <header class="site-header">
+            <nav class="site-nav" aria-label="Main">
+                <a href="index" class="site-logo">SPACE IELTS</a>
+                <div class="nav-auth">
+                    <div class="nav-auth-guest" data-auth-guest>
+                        <button type="button" class="btn btn-ghost" data-open-login>Login</button>
+                        <button type="button" class="btn btn-signup" data-open-signup>Sign Up</button>
+                    </div>
+                    <div class="nav-auth-user" data-auth-user hidden>
+                        <a href="writing-grammar" class="btn btn-ghost">Lessons</a>
+                        <div class="nav-profile" data-nav-profile>
+                            <button
+                                type="button"
+                                class="nav-profile__trigger"
+                                data-profile-trigger
+                                id="nav-profile-trigger"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-controls="nav-profile-menu"
+                            >
+                                <span class="nav-profile__avatar" data-profile-avatar aria-hidden="true">?</span>
+                                <span class="nav-profile__name" data-profile-label>Account</span>
+                            </button>
+                            <div
+                                class="nav-profile__menu"
+                                id="nav-profile-menu"
+                                data-profile-dropdown
+                                hidden
+                                role="menu"
+                                aria-labelledby="nav-profile-trigger"
+                            >
+                                <a href="dashboard" class="nav-profile__item" role="menuitem">My Profile</a>
+                                <a href="dashboard#recent-tests" class="nav-profile__item" role="menuitem">Test History</a>
+                                <button type="button" class="nav-profile__item nav-profile__item--logout" data-logout role="menuitem">
+                                    Log out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section id="listening-tests" class="hub-section" aria-labelledby="listening-tests-heading">
+            <div class="hub-section-inner">
+                <h2 id="listening-tests-heading" class="hub-heading">Listening Practice Tests</h2>
+                <p class="hub-lead">Choose a test to practice your listening skills with instant feedback.</p>
+
+                <div class="hub-grid">
+                    <a href="listening 1/Listening" class="hub-card hub-card--link">
+                        <span class="hub-card-icon-wrap" aria-hidden="true">
+                            <svg class="hub-card-icon hub-card-icon--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--text-main, #1d1d1f);">
+                                <path d="M3 14v3a2 2 0 0 0 2 2h2a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H5a2 2 0 0 0-2 2z"/>
+                                <path d="M21 14v3a2 2 0 0 1-2 2h-2a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2a2 2 0 0 1 2 2z"/>
+                                <path d="M3 10a9 9 0 0 1 9-9 9 9 0 0 1 9 9"/>
+                            </svg>
+                        </span>
+                        <h3 class="hub-card-title">Cambridge 20 - Test 1</h3>
+                        <p class="hub-card-desc">Professional IELTS Listening simulation with 40 questions.</p>
+                        <span class="hub-card-cta">Start Test</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="signup-modal" class="auth-modal" hidden aria-hidden="true">
+        <div class="auth-modal-backdrop" data-close-signup tabindex="-1" aria-hidden="true"></div>
+        <div
+            class="auth-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="signup-title"
+        >
+            <button type="button" class="auth-modal-close" data-close-signup aria-label="Close">×</button>
+            <h2 id="signup-title" class="auth-modal-title">Create an account</h2>
+
+            <form id="signup-form" class="auth-form" novalidate>
+                <label class="auth-label">
+                    <span class="auth-label-text">Email</span>
+                    <input
+                        class="auth-input"
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        inputmode="email"
+                    >
+                </label>
+                <label class="auth-label">
+                    <span class="auth-label-text">Password</span>
+                    <input
+                        class="auth-input"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                    >
+                </label>
+                <p class="auth-hint">
+                    Use at least 8 characters, one number, and one special character.
+                </p>
+                <button type="submit" class="btn btn-signup auth-submit">Sign Up</button>
+            </form>
+
+            <div
+                id="signup-success"
+                class="auth-success"
+                hidden
+                role="status"
+                aria-live="polite"
+            >
+                <div class="auth-success-icon" aria-hidden="true">✓</div>
+                <p class="auth-success-text">
+                    Please check your email to verify your account.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-modal" class="auth-modal" hidden aria-hidden="true">
+        <div class="auth-modal-backdrop" data-close-login tabindex="-1" aria-hidden="true"></div>
+        <div
+            class="auth-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="login-title"
+        >
+            <button type="button" class="auth-modal-close" data-close-login aria-label="Close">×</button>
+            <h2 id="login-title" class="auth-modal-title">Log in</h2>
+
+            <form id="login-form" class="auth-form" novalidate>
+                <label class="auth-label">
+                    <span class="auth-label-text">Email</span>
+                    <input
+                        class="auth-input"
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        inputmode="email"
+                    >
+                </label>
+                <label class="auth-label">
+                    <span class="auth-label-text">Password</span>
+                    <input
+                        class="auth-input"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="current-password"
+                    >
+                </label>
+                <button type="submit" class="btn btn-signup auth-submit">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app/security.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/app/registration.js"></script>
+</body>
+</html>

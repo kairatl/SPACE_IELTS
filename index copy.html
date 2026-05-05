@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Flow — Grammar for Writing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056D2;
+            --accent: #FF7A59;
+            --bg: #FFFFFF;
+            --gray-bg: #F8F9FA;
+            --text-main: #1D1D1F;
+            --text-sec: #495057;
+            --success: #34C759;
+            --error: #FF3B30;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            color: var(--text-main); 
+            line-height: 1.6;
+        }
+
+        /* LANDING PAGE */
+        #landing-page { display: block; }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 10%;
+            min-height: 70vh;
+        }
+
+        .hero h1 { font-size: 52px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 20px; color: var(--text-sec); max-width: 800px; margin: 0 auto 40px; }
+
+        .reg-form { 
+            display: flex; 
+            border: 2px solid #E5E5E7; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto 60px;
+        }
+        .reg-form input { border: none; padding: 18px; flex-grow: 1; outline: none; font-size: 16px; }
+        .reg-form button { background: var(--primary); color: white; border: none; padding: 15px 30px; cursor: pointer; font-weight: 700; }
+
+        /* LESSONS SECTION */
+        .lessons-section { background: var(--gray-bg); padding: 100px 10%; text-align: center; }
+        .lessons-section h2 { font-size: 42px; margin-bottom: 20px; }
+        .lessons-header-text { max-width: 750px; margin: 0 auto 60px; color: var(--text-sec); font-size: 18px; }
+
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        .lesson-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: 0.4s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        .lesson-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .card-icon { width: 60px; height: 60px; margin-bottom: 25px; object-fit: contain; }
+        .lesson-card h3 { font-size: 22px; margin-bottom: 15px; }
+        .lesson-card p { color: var(--text-sec); font-size: 16px; margin-bottom: 25px; flex-grow: 1; }
+        .card-btn { color: var(--accent); font-weight: 700; font-size: 15px; text-transform: uppercase; }
+
+        /* LESSON PAGE */
+        #lesson-page { display: none; padding: 60px 10%; background: #fff; min-height: 100vh; }
+        .lesson-container { max-width: 850px; margin: 0 auto; }
+        .back-btn { cursor: pointer; color: var(--primary); margin-bottom: 40px; display: inline-block; font-weight: 700; font-size: 18px; }
+        
+        .lesson-body { white-space: pre-line; font-size: 18px; color: #333; text-align: left; margin-bottom: 40px; }
+        .lesson-body h1 { font-size: 36px; margin-bottom: 30px; color: var(--text-main); line-height: 1.2; }
+        .lesson-body b { color: var(--primary); font-weight: 700; }
+        .lesson-body hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
+
+        /* TEST SECTION STYLES */
+        .practice-btn-trigger { background: var(--accent); color: white; border: none; padding: 20px 40px; border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 18px; width: 100%; margin-top: 20px; transition: 0.3s; }
+        .practice-btn-trigger:hover { opacity: 0.9; transform: scale(1.01); }
+
+        .test-area { display: none; margin-top: 40px; padding-top: 40px; border-top: 2px solid var(--gray-bg); }
+        .test-title { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+
+        /* Quiz Buttons */
+        .quiz-option { display: block; width: 100%; padding: 15px 20px; margin-bottom: 12px; border: 2px solid #E5E5E7; border-radius: 12px; cursor: pointer; text-align: left; background: #fff; font-size: 16px; transition: 0.2s; }
+        .quiz-option.correct { border-color: var(--success); background: #E7F9EE; }
+        .quiz-option.wrong { border-color: var(--error); background: #FDE8E8; }
+
+        /* Duolingo Word Order Styles */
+        .answer-zone { display: flex; flex-wrap: wrap; gap: 10px; min-height: 60px; border-bottom: 2px solid #E5E5E7; padding: 10px; margin-bottom: 20px; }
+        .word-pool { display: flex; flex-wrap: wrap; gap: 10px; padding: 20px; background: var(--gray-bg); border-radius: 12px; }
+        .word-item { padding: 10px 18px; background: white; border: 2px solid #E5E5E7; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 2px 0 #E5E5E7; }
+        .word-item.used { opacity: 0.2; cursor: default; }
+
+    </style>
+</head>
+<body>
+
+    <div id="landing-page">
+        <section class="hero">
+            <h1>Grammar for Writing Section</h1>
+            <p>Grammar is crucial. The problem is most of the resources in the Internet either explain it too opaque or in too much detail. The truth, as with everything, lies in-between: grammar should be learned structurally with understanding why.</p>
+            
+            <div class="reg-form">
+                <input type="email" placeholder="mail@example.com">
+                <button>Зарегистрироваться</button>
+            </div>
+        </section>
+
+        <section class="lessons-section">
+            <h2>Lessons</h2>
+            <p class="lessons-header-text">Grammar is the fundamental aspect related to all 4 sections: writing and speaking access this criteria oficially, while the reading/listening sections, though indirectly, also can deepen your understanding.</p>
+            
+            <div class="cards-container">
+                <div class="lesson-card" onclick="openLesson(1)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1162/1162456.png" class="card-icon">
+                    <h3>Lesson 1: Subject — Verb — Object</h3>
+                    <p>Understanding the core structure of English meaning.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+
+                <div class="lesson-card" onclick="openLesson(2)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3503/3503816.png" class="card-icon">
+                    <h3>Lesson 2: Present & Past Simple</h3>
+                    <p>The foundation of all IELTS tenses and time context.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+
+                <div class="lesson-card" onclick="openLesson(3)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3389/3389081.png" class="card-icon">
+                    <h3>Lesson 3: Irregular Verbs</h3>
+                    <p>Mastering the patterns that don't follow the rules.</p>
+                    <span class="card-btn">Open Lesson →</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="lesson-page">
+        <div class="lesson-container">
+            <span class="back-btn" onclick="goBack()">← Back to Lessons</span>
+            
+            <div id="lesson-content-area" class="lesson-body">
+                </div>
+
+            <button class="practice-btn-trigger" id="practice-btn" onclick="startPractice()">Start Practice Test →</button>
+
+            <div id="test-area" class="test-area">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // ЗАЩИТА: Блокировка Ctrl+C и других клавиш
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 73)) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // МАТЕРИАЛЫ УРОКОВ (Полные тексты + Данные для тестов)
+        const lessonsData = {
+            1: {
+                title: "Lesson 1: SUBJECT — ACTION VERB — OBJECT",
+                content: `<h1>Lesson 1: SUBJECT — ACTION VERB — OBJECT</h1>
+These three ideas will appear constantly in everything you do next, so it is important to understand them clearly.
+
+<b>Subject</b> — the person, thing, or entity that performs the main action in the sentence.
+<b>Action verb</b> — the word that shows what the subject does.
+<b>Object</b> — the person or thing that receives the action.
+
+<b>A simple illustration</b>
+Alex threw the rock.
+Alex — subject
+threw — action verb
+the rock — object
+
+The structure is clear:
+Alex performs an action, and the action affects the rock.
+
+<b>Changing roles changes meaning</b>
+Now look at this sentence:
+The rock hit Alex.
+Here:
+the rock is the subject
+hit is the action verb
+Alex is the object
+
+Even though the same two elements are present (Alex and the rock), the meaning changes completely because their roles change.
+
+<b>Key idea to remember</b>
+Meaning in English depends on structure, not on words alone.
+If you change the subject and the object, you change: who controls the action, who is affected by it, and often the entire interpretation of the sentence. Once this structure is solid, everything else becomes an expansion of it.`,
+                testType: 'duolingo',
+                question: 'Build the sentence: "The rock hit Alex"',
+                words: ['hit', 'The', 'rock', 'Alex'],
+                correctOrder: ['The', 'rock', 'hit', 'Alex']
+            },
+            2: {
+                title: "Lesson 2: Present Simple & Past Simple",
+                content: `<h1>Lesson 2: Present Simple & Past Simple</h1>
+Tenses are one of the most important parts of IELTS.
+Almost all other tenses are built on these two, so they must be understood first.
+At this stage, do not focus on complex rules.
+Your goal is to remember the structure and the basic meaning.
+
+<b>Present Simple</b>
+We use Present Simple to talk about: things that happen regularly, facts, routines and habits.
+Structure:
+Subject + Action Verb (1st form)
+
+Examples:
+<i>I walk to school.
+People use fossil fuels.
+This graph shows a steady increase.</i>
+
+Key idea:
+The action is true in general, not just right now.
+
+<hr>
+
+<b>Past Simple</b>
+We use Past Simple to talk about: actions that happened at a specific time in the past, events that are finished.
+Structure:
+Subject + Action Verb (2nd form)
+
+Examples:
+<i>I walked to school yesterday.
+The company increased production in 2020.
+Pollution levels dropped last year.</i>
+
+Key idea:
+The action happened before now and is already complete.
+
+<b>Why verb forms matter</b>
+Look at the difference:
+I walk to school.
+→ a routine / something that happens regularly
+I walked to school.
+→ a finished action in the past
+
+Notice how only the verb form changes, but the context of the whole sentence changes.
+This is why verb forms are essential for clear meaning in IELTS.
+
+<b>Important note (do not overthink yet)</b>
+You may notice another tense:
+I have walked to school.
+This tense has a different purpose and a different structure.
+We will study it later.
+For now:
+Do not mix tenses. Focus on memorising the structure and basic meaning.`,
+                testType: 'quiz',
+                question: 'Which sentence is in Past Simple?',
+                options: [
+                    { text: 'I walk to school.', correct: false },
+                    { text: 'Pollution levels dropped last year.', correct: true },
+                    { text: 'This graph shows a steady increase.', correct: false }
+                ]
+            },
+            3: {
+                title: "Lesson 3 — Irregular verbs (2nd form)",
+                content: `<h1>Lesson 3 — Irregular verbs (2nd form)</h1>
+At this point, grammar becomes partly about memorisation.
+This is normal — get used to it.
+Not everything in English follows a single rule.
+Verb forms are one of those areas where patterns exist, but memory is essential.
+
+<b>Look at these sentences</b>
+I walk to school. → I walked to school.
+She eats breakfast. → She ate breakfast.
+He runs every day. → He ran yesterday.
+They study all night. → They studied all night.
+
+Notice how the verb changes, but the sentence structure stays the same:
+Subject + Verb (+ Object)
+Only the verb form changes to show time.
+
+<b>Two types of verb forms</b>
+When verbs change into the past form, they follow two different patterns.
+
+<b>1) Regular verbs</b>
+Most verbs form the past simple by adding -ed.
+Examples:
+walk → walked
+study → studied
+work → worked
+change → changed
+These verbs are called regular verbs because they follow a predictable rule.
+
+<b>2) Irregular verbs</b>
+Some verbs do not follow the -ed rule.
+Their past forms are different and must be memorised.
+Examples:
+run → ran
+eat → ate
+teach → taught
+buy → bought
+These are called irregular verbs.
+There is no shortcut rule here.
+The only way forward is familiarity and repetition.`,
+                testType: 'quiz',
+                question: 'Which of these is an IRREGULAR verb?',
+                options: [
+                    { text: 'walked', correct: false },
+                    { text: 'studied', correct: false },
+                    { text: 'ate', correct: true },
+                    { text: 'worked', correct: false }
+                ]
+            }
+        };
+
+        let currentLessonId = null;
+        let selectedWords = [];
+
+        function openLesson(id) {
+            currentLessonId = id;
+            const contentArea = document.getElementById('lesson-content-area');
+            contentArea.innerHTML = lessonsData[id].content;
+            
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('lesson-page').style.display = 'block';
+            document.getElementById('test-area').style.display = 'none';
+            document.getElementById('practice-btn').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            document.getElementById('landing-page').style.display = 'block';
+            document.getElementById('lesson-page').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        // ЛОГИКА ТЕСТОВ
+        function startPractice() {
+            const testArea = document.getElementById('test-area');
+            testArea.style.display = 'block';
+            document.getElementById('practice-btn').style.display = 'none';
+            
+            const data = lessonsData[currentLessonId];
+            testArea.innerHTML = `<div class="test-title">${data.question}</div>`;
+
+            if (data.testType === 'quiz') {
+                data.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quiz-option';
+                    btn.innerText = opt.text;
+                    btn.onclick = function() {
+                        if (opt.correct) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('wrong');
+                        }
+                        // Отключаем остальные кнопки после выбора
+                        const allOpts = testArea.querySelectorAll('.quiz-option');
+                        allOpts.forEach(b => b.style.pointerEvents = 'none');
+                    };
+                    testArea.appendChild(btn);
+                });
+            } else if (data.testType === 'duolingo') {
+                selectedWords = [];
+                testArea.innerHTML += `
+                    <div class="answer-zone" id="answer-zone"></div>
+                    <div class="word-pool" id="word-pool">
+                        ${data.words.map(w => `<div class="word-item" onclick="pickWord(this, '${w}')">${w}</div>`).join('')}
+                    </div>
+                    <button class="practice-btn-trigger" style="margin-top:20px" onclick="checkOrder()">Check Answer</button>
+                `;
+            }
+            // Скролл к началу теста
+            testArea.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function pickWord(el, word) {
+            if (el.classList.contains('used')) return;
+            el.classList.add('used');
+            selectedWords.push(word);
+            renderWords();
+        }
+
+        function renderWords() {
+            const zone = document.getElementById('answer-zone');
+            zone.innerHTML = selectedWords.map((w, i) => `<div class="word-item" onclick="removeWord(${i}, '${w}')">${w}</div>`).join('');
+        }
+
+        function removeWord(index, word) {
+            selectedWords.splice(index, 1);
+            const poolItems = document.querySelectorAll('.word-pool .word-item');
+            poolItems.forEach(item => {
+                if (item.innerText === word && item.classList.contains('used')) {
+                    item.classList.remove('used');
+                }
+            });
+            renderWords();
+        }
+
+        function checkOrder() {
+            const correct = lessonsData[currentLessonId].correctOrder.join(' ');
+            const current = selectedWords.join(' ');
+            if (current === correct) {
+                alert("Well done! Correct sentence structure.");
+            } else {
+                alert("Wrong order. Remember: Subject — Verb — Object.");
+            }
+        }
+    </script>
+</body>
+</html>

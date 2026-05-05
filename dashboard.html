@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard — SPACE IELTS</title>
+    <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wa054xjbgs");
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="landing-page">
+        <header class="site-header">
+            <nav class="site-nav" aria-label="Main">
+                <a href="index" class="site-logo">SPACE IELTS</a>
+                <div class="nav-auth">
+                    <div class="nav-auth-guest" data-auth-guest>
+                        <button type="button" class="btn btn-ghost" data-open-login>Login</button>
+                        <button type="button" class="btn btn-signup" data-open-signup>Sign Up</button>
+                    </div>
+                    <div class="nav-auth-user" data-auth-user hidden>
+                        <a href="writing-grammar" class="btn btn-ghost">Lessons</a>
+                        <div class="nav-profile" data-nav-profile>
+                            <button
+                                type="button"
+                                class="nav-profile__trigger"
+                                data-profile-trigger
+                                id="nav-profile-trigger-dash"
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                aria-controls="nav-profile-menu-dash"
+                            >
+                                <span class="nav-profile__avatar" data-profile-avatar aria-hidden="true">?</span>
+                                <span class="nav-profile__name" data-profile-label>Account</span>
+                            </button>
+                            <div
+                                class="nav-profile__menu"
+                                id="nav-profile-menu-dash"
+                                data-profile-dropdown
+                                hidden
+                                role="menu"
+                                aria-labelledby="nav-profile-trigger-dash"
+                            >
+                                <a href="dashboard" class="nav-profile__item" role="menuitem">My Profile</a>
+                                <a href="dashboard#recent-tests" class="nav-profile__item" role="menuitem">Test History</a>
+                                <a href="dashboard#vocabulary" class="nav-profile__item" role="menuitem">My Vocabulary</a>
+                                <button type="button" class="nav-profile__item nav-profile__item--logout" data-logout role="menuitem">
+                                    Log out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep" aria-hidden="true">/</span>
+            <span class="breadcrumb-current">My Dashboard</span>
+        </nav>
+
+        <section class="page-intro">
+            <h1 class="page-intro-title">My Dashboard</h1>
+            <p class="page-intro-text">Track your reading practice, band trend, and recent attempts. Data is stored in this browser until you clear site data.</p>
+        </section>
+
+        <section class="hub-section" aria-label="Dashboard views">
+            <div class="hub-section-inner">
+                <div class="dashboard-tablist" role="tablist" aria-label="Dashboard">
+                    <button
+                        type="button"
+                        class="dashboard-tab"
+                        role="tab"
+                        id="dash-tab-progress"
+                        aria-selected="true"
+                        aria-controls="dash-panel-progress"
+                    >
+                        Progress
+                    </button>
+                    <button
+                        type="button"
+                        class="dashboard-tab"
+                        role="tab"
+                        id="dash-tab-vocab"
+                        aria-selected="false"
+                        aria-controls="dash-panel-vocab"
+                    >
+                        My Vocabulary
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div id="dash-panel-progress" class="dashboard-tab-panel" role="tabpanel" aria-labelledby="dash-tab-progress">
+        <section class="hub-section" aria-labelledby="dash-stats-heading">
+            <div class="hub-section-inner">
+                <h2 id="dash-stats-heading" class="hub-heading">Overview</h2>
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat-card">
+                        <p id="dash-stat-completed" class="dashboard-stat-value">0</p>
+                        <p class="dashboard-stat-label">Tests completed</p>
+                    </div>
+                    <div class="dashboard-stat-card">
+                        <p id="dash-stat-band" class="dashboard-stat-value">—</p>
+                        <p class="dashboard-stat-label">Average band score</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recent-tests" class="hub-section" aria-labelledby="recent-tests-heading">
+            <div class="hub-section-inner">
+                <h2 id="recent-tests-heading" class="hub-heading">Recent Tests</h2>
+                <p class="hub-lead">Latest reading attempts. Retake clears your answers and restarts the same paper.</p>
+                <div id="dashboard-recent-guest" class="dashboard-guest-callout" hidden>
+                    <p class="dashboard-guest-callout__text">
+                        Want to track your progress?
+                        <button type="button" class="btn btn-signup" data-open-signup>Sign Up</button>
+                        to save your test history!
+                    </p>
+                </div>
+                <div id="recent-tests-list" class="dashboard-recent-list"></div>
+            </div>
+        </section>
+        </div>
+
+        <div id="dash-panel-vocab" class="dashboard-tab-panel" role="tabpanel" aria-labelledby="dash-tab-vocab" hidden>
+            <section class="hub-section" aria-labelledby="vocab-dash-heading">
+                <div class="hub-section-inner">
+                    <h2 id="vocab-dash-heading" class="hub-heading">My Vocabulary</h2>
+                    <p class="hub-lead">Reading saves go to <strong>Auto-Saved</strong>; build your own lists in <strong>Custom Folders</strong>. Everything stays in this browser.</p>
+                    <div id="vocab-dashboard-root" data-vocab-search=""></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="signup-modal" class="auth-modal" hidden aria-hidden="true">
+        <div class="auth-modal-backdrop" data-close-signup tabindex="-1" aria-hidden="true"></div>
+        <div
+            class="auth-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="signup-title"
+        >
+            <button type="button" class="auth-modal-close" data-close-signup aria-label="Close">×</button>
+            <h2 id="signup-title" class="auth-modal-title">Create an account</h2>
+
+            <form id="signup-form" class="auth-form" novalidate>
+                <label class="auth-label">
+                    <span class="auth-label-text">Email</span>
+                    <input
+                        class="auth-input"
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        inputmode="email"
+                    >
+                </label>
+                <label class="auth-label">
+                    <span class="auth-label-text">Password</span>
+                    <input
+                        class="auth-input"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                    >
+                </label>
+                <p class="auth-hint">
+                    Use at least 8 characters, one number, and one special character.
+                </p>
+                <button type="submit" class="btn btn-signup auth-submit">Sign Up</button>
+            </form>
+
+            <div
+                id="signup-success"
+                class="auth-success"
+                hidden
+                role="status"
+                aria-live="polite"
+            >
+                <div class="auth-success-icon" aria-hidden="true">✓</div>
+                <p class="auth-success-text">
+                    Please check your email to verify your account.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-modal" class="auth-modal" hidden aria-hidden="true">
+        <div class="auth-modal-backdrop" data-close-login tabindex="-1" aria-hidden="true"></div>
+        <div
+            class="auth-modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="login-title"
+        >
+            <button type="button" class="auth-modal-close" data-close-login aria-label="Close">×</button>
+            <h2 id="login-title" class="auth-modal-title">Log in</h2>
+
+            <form id="login-form" class="auth-form" novalidate>
+                <label class="auth-label">
+                    <span class="auth-label-text">Email</span>
+                    <input
+                        class="auth-input"
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        inputmode="email"
+                    >
+                </label>
+                <label class="auth-label">
+                    <span class="auth-label-text">Password</span>
+                    <input
+                        class="auth-input"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="current-password"
+                    >
+                </label>
+                <button type="submit" class="btn btn-signup auth-submit">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app/test-storage.js"></script>
+    <script src="js/app/security.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/app/registration.js"></script>
+    <script type="module">
+        import { getSupabaseBrowserClientAsync } from './js/app/supabase-browser.js';
+        import { renderVocabularyDashboard } from './js/app/vocabulary.js';
+
+        function setupDashboardTabs() {
+            var tabProg = document.getElementById('dash-tab-progress');
+            var tabVocab = document.getElementById('dash-tab-vocab');
+            var panelProg = document.getElementById('dash-panel-progress');
+            var panelVocab = document.getElementById('dash-panel-vocab');
+            var vocabRoot = document.getElementById('vocab-dashboard-root');
+            if (!tabProg || !tabVocab || !panelProg || !panelVocab) return;
+
+            function selectTab(which) {
+                var vocab = which === 'vocab';
+                tabProg.setAttribute('aria-selected', vocab ? 'false' : 'true');
+                tabVocab.setAttribute('aria-selected', vocab ? 'true' : 'false');
+                if (vocab) {
+                    panelProg.setAttribute('hidden', '');
+                    panelVocab.removeAttribute('hidden');
+                    if (vocabRoot) {
+                        renderVocabularyDashboard(vocabRoot);
+                    }
+                } else {
+                    panelVocab.setAttribute('hidden', '');
+                    panelProg.removeAttribute('hidden');
+                }
+            }
+
+            tabProg.addEventListener('click', function () {
+                selectTab('progress');
+                try {
+                    history.replaceState(null, '', 'dashboard');
+                } catch (e) {}
+            });
+            tabVocab.addEventListener('click', function () {
+                selectTab('vocab');
+                try {
+                    history.replaceState(null, '', 'dashboard#vocabulary');
+                } catch (e) {}
+            });
+
+            window.addEventListener('hashchange', function () {
+                var h = (window.location.hash || '').toLowerCase();
+                if (h === '#vocabulary' || h === '#my-vocabulary') {
+                    selectTab('vocab');
+                } else if (!h || h === '#recent-tests' || h === '#') {
+                    selectTab('progress');
+                }
+            });
+
+            var hash = (window.location.hash || '').toLowerCase();
+            if (hash === '#vocabulary' || hash === '#my-vocabulary') {
+                selectTab('vocab');
+            } else {
+                selectTab('progress');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async function () {
+            setupDashboardTabs();
+
+            var supabase = await getSupabaseBrowserClientAsync();
+            var session = null;
+            if (supabase) {
+                var r = await supabase.auth.getSession();
+                session = r.data.session;
+            }
+            var isLoggedIn = !!session;
+
+            var guestPanel = document.getElementById('dashboard-recent-guest');
+            var completedEl = document.getElementById('dash-stat-completed');
+            var bandEl = document.getElementById('dash-stat-band');
+            var root = document.getElementById('recent-tests-list');
+
+            if (!isLoggedIn) {
+                if (completedEl) completedEl.textContent = '0';
+                if (bandEl) bandEl.textContent = '—';
+                if (guestPanel) guestPanel.hidden = false;
+                if (root) root.innerHTML = '';
+                return;
+            }
+
+            if (guestPanel) guestPanel.hidden = true;
+
+            var st = window.spaceIELTSTestStorage;
+            if (!st) return;
+
+            var stats = st.getStats();
+            if (completedEl) completedEl.textContent = String(stats.completed);
+            if (bandEl) {
+                bandEl.textContent =
+                    stats.averageBand != null ? String(stats.averageBand) : '—';
+            }
+
+            if (!root) return;
+
+            var list = st.getTestHistory().slice(0, 30);
+            root.innerHTML = '';
+
+            if (!list.length) {
+                var empty = document.createElement('p');
+                empty.className = 'hub-lead';
+                empty.textContent =
+                    'No completed tests yet. Submit a reading test to build your history here.';
+                root.appendChild(empty);
+                return;
+            }
+
+            list.forEach(function (entry) {
+                var card = document.createElement('div');
+                card.className = 'dashboard-test-card';
+
+                var d = new Date(entry.date);
+                var dateStr = d.toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                var testName = st.getTestDisplayName(entry.testId);
+                var score = entry.score;
+                var total = 40;
+                var band = Number(entry.band);
+                var bandStr = Number.isFinite(band) ? band.toFixed(1) : '—';
+
+                var colDate = document.createElement('div');
+                colDate.innerHTML =
+                    '<span class="dashboard-test-card__muted">Date</span><p class="dashboard-test-card__title" style="margin:4px 0 0;font-size:14px;font-weight:500">' +
+                    dateStr +
+                    '</p>';
+
+                var colName = document.createElement('div');
+                colName.innerHTML =
+                    '<span class="dashboard-test-card__muted">Test</span><p class="dashboard-test-card__title" style="margin:4px 0 0">' +
+                    testName +
+                    '</p>';
+
+                var colScore = document.createElement('div');
+                colScore.innerHTML =
+                    '<span class="dashboard-test-card__muted">Score</span><p class="dashboard-test-card__score" style="margin:4px 0 0">' +
+                    score +
+                    '/' +
+                    total +
+                    '</p>';
+
+                var colBand = document.createElement('div');
+                colBand.innerHTML =
+                    '<span class="dashboard-test-card__muted">Band</span><p class="dashboard-test-card__score" style="margin:4px 0 0">' +
+                    bandStr +
+                    '</p>';
+
+                var colAction = document.createElement('div');
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn btn-signup dashboard-retake';
+                btn.textContent = 'Retake';
+                btn.addEventListener('click', function () {
+                    window.location.href =
+                        'test-reading?test=' +
+                        encodeURIComponent(entry.testId) +
+                        '&retake=' +
+                        encodeURIComponent(entry.testId);
+                });
+                colAction.appendChild(btn);
+
+                card.appendChild(colDate);
+                card.appendChild(colName);
+                card.appendChild(colScore);
+                card.appendChild(colBand);
+                card.appendChild(colAction);
+                root.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>
