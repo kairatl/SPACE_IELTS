@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/index", "destination": "/index.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/writing-grammar", "destination": "/writing-grammar.html" },
+    { "source": "/reading-dashboard", "destination": "/reading-dashboard.html" },
+    { "source": "/listening-dashboard", "destination": "/listening-dashboard.html" },
+    { "source": "/test-reading", "destination": "/test-reading.html" }
+  ]
+}
+
